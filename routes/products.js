@@ -1,5 +1,5 @@
-const {Product} = require('../models/product');
 const express = require('express');
+const { Product } = require('../models/product');
 const { Category } = require('../models/category');
 const router = express.Router();
 const mongoose = require('mongoose');
@@ -89,7 +89,7 @@ router.post(`/`, uploadOptions.single('image'), async (req, res) => {
 
 
 router.put('/:id', uploadOptions.single('image'), async (req, res) => {
-    console.log(req.body.category);
+    console.log(req.body);
     if (!mongoose.isValidObjectId(req.params.id)) {
         return res.status(400).send('Invalid Product Id');
     }
